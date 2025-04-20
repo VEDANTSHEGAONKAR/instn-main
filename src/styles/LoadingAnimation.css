@@ -1,0 +1,188 @@
+.loading-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(15, 23, 42, 0.9);
+  z-index: 100;
+  backdrop-filter: blur(4px);
+  border-radius: 8px;
+}
+
+.light-mode .loading-animation {
+  background-color: rgba(248, 250, 252, 0.9);
+}
+
+.loading-container {
+  width: 90%;
+  max-width: 500px;
+  padding: 30px;
+  background-color: var(--input-background);
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  border: 1px solid var(--border-color);
+}
+
+@media (max-width: 768px) {
+  .loading-container {
+    width: 95%;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .loading-container {
+    padding: 15px;
+  }
+
+  .loading-container h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+
+  .progress-label {
+    font-size: 12px;
+  }
+
+  .building-animation {
+    margin: 20px 0;
+    height: 80px;
+  }
+
+  .building-block {
+    width: 30px;
+    height: 30px;
+    margin: 0 3px;
+    top: 50px;
+  }
+
+  .loading-message {
+    font-size: 14px;
+    margin-top: 15px;
+    height: 20px;
+  }
+}
+
+.loading-container h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: var(--heading-color);
+}
+
+.progress-container {
+  margin-bottom: 15px;
+}
+
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: var(--text-color);
+}
+
+.progress-bar {
+  height: 10px;
+  background-color: var(--border-color);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0;
+  transition: width 0.5s ease-in-out;
+}
+
+.html-fill {
+  background-color: #4caf50;
+}
+
+.css-fill {
+  background-color: #2196f3;
+}
+
+.js-fill {
+  background-color: #ff9800;
+}
+
+.building-animation {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+  height: 100px;
+}
+
+.building-block {
+  width: 40px;
+  height: 40px;
+  margin: 0 5px;
+  background-color: var(--accent-color);
+  border-radius: 4px;
+  animation: pulse 1.5s infinite ease-in-out;
+  transform-origin: bottom;
+  position: relative;
+  top: 60px;
+}
+
+.building-block:nth-child(1) {
+  background-color: #4caf50;
+}
+
+.building-block:nth-child(2) {
+  background-color: #2196f3;
+}
+
+.building-block:nth-child(3) {
+  background-color: #ff9800;
+}
+
+.building-block:nth-child(4) {
+  background-color: #9c27b0;
+}
+
+.building-block:nth-child(5) {
+  background-color: #f44336;
+}
+
+@keyframes pulse {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-30px) scale(1.05);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+.loading-message {
+  font-size: 16px;
+  color: var(--text-color);
+  margin-top: 20px;
+  height: 24px;
+  font-weight: 500;
+}
+
+/* Animation for chunks being built */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.chunk-animation {
+  animation: fadeIn 0.5s ease-out forwards;
+}

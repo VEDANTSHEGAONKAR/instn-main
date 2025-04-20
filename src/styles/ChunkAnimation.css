@@ -1,0 +1,47 @@
+/* Animation for chunks being built */
+.chunk-animation-container {
+  position: relative;
+}
+
+.chunk-animation {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInChunk 0.5s ease-out forwards;
+}
+
+@keyframes fadeInChunk {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Different animation delays for different chunks */
+.chunk-animation:nth-child(1) { animation-delay: 0.1s; }
+.chunk-animation:nth-child(2) { animation-delay: 0.2s; }
+.chunk-animation:nth-child(3) { animation-delay: 0.3s; }
+.chunk-animation:nth-child(4) { animation-delay: 0.4s; }
+.chunk-animation:nth-child(5) { animation-delay: 0.5s; }
+.chunk-animation:nth-child(6) { animation-delay: 0.6s; }
+.chunk-animation:nth-child(7) { animation-delay: 0.7s; }
+.chunk-animation:nth-child(8) { animation-delay: 0.8s; }
+.chunk-animation:nth-child(9) { animation-delay: 0.9s; }
+.chunk-animation:nth-child(10) { animation-delay: 1.0s; }
+
+/* Highlight animation for newly added elements */
+.highlight-new {
+  animation: highlightNew 2s ease-out;
+}
+
+@keyframes highlightNew {
+  0% {
+    background-color: rgba(var(--accent-color-rgb), 0.2);
+  }
+  100% {
+    background-color: transparent;
+  }
+}

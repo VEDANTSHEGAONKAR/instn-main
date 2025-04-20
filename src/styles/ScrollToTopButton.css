@@ -1,0 +1,66 @@
+.scroll-to-top {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: var(--accent-color);
+  color: white;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  opacity: 0.9;
+}
+
+.scroll-to-top:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.scroll-to-top-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+
+.scroll-to-top svg {
+  width: 20px;
+  height: 20px;
+}
+
+.scroll-to-top-label {
+  font-size: 10px;
+  font-weight: 500;
+  margin-top: -2px;
+}
+
+/* Only show on mobile */
+@media (max-width: 768px) {
+  .scroll-to-top {
+    display: flex;
+    bottom: 30px;
+    right: 20px;
+  }
+
+  /* Don't hide the button when in preview section */
+  .scroll-to-top.hidden {
+    display: none;
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  /* Ensure the button is visible when scrolled down */
+  body:not(.at-top) .scroll-to-top {
+    display: flex !important;
+    opacity: 1;
+    transform: scale(1);
+  }
+}
