@@ -18,15 +18,16 @@ UNSPLASH_DEMO_KEY = "ab3411e4ac868c2646c0ed488dfd919ef612b04c264f3374c97fff98ed2
 
 app = Flask(__name__)
 # Configure CORS to allow requests from your React app
-# Get allowed origins from environment or use default for local development
-allowed_origins = os.getenv('ALLOWED_ORIGINS', 'http://localhost:3000')
+allowed_origins = os.getenv('ALLOWED_ORIGINS', '*')  # Default to all origins if not specified
 origins_list = [origin.strip() for origin in allowed_origins.split(',')]
 
 CORS(app, resources={
     r"/api/*": {
         "origins": origins_list,
-        "methods": ["GET", "POST"],
-        "allow_headers": ["Content-Type"]
+        "methods": ["GET", "POST", "OPTIONS"],
+        "allow_headers": ["Content-Type", "Authorization"],
+        "expose_headers": ["Content-Type"],
+        "supports_credentials": True
     }
 })
 
