@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, Response
+from flask import Flask, request, jsonify, Response, redirect
 from flask_cors import CORS
 import os
 import google.generativeai as genai
@@ -9,6 +9,9 @@ import requests
 import random
 
 load_dotenv()
+
+# Add GitHub repository URL
+GITHUB_REPO_URL = "https://github.com/VEDANTSHEGAONKAR/instn-main"
 
 # Unsplash API configuration
 # Using the Unsplash demo key for both development and production
@@ -634,3 +637,15 @@ def generate_application(description=None):
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 3001))
     app.run(host='0.0.0.0', port=port, debug=os.getenv('FLASK_DEBUG', 'True').lower() == 'true')
+
+# Add GitHub redirect route before the main block
+@app.route('/github')
+def github_redirect():
+    return redirect(GITHUB_REPO_URL, code=302)
+
+# Add route for direct repository URL
+@app.route('/repository')
+def repository():
+    return jsonify({
+        'url': GITHUB_REPO_URL
+    })
